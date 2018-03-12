@@ -74,7 +74,10 @@ class AboutController extends Controller
         return Admin::grid(About::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
+            $grid->column('title');
+            $grid->image();
+            $grid->summary();
+            $grid->content();
             $grid->created_at();
             $grid->updated_at();
         });
@@ -90,6 +93,11 @@ class AboutController extends Controller
         return Admin::form(About::class, function (Form $form) {
 
             $form->display('id', 'ID');
+
+            $form->text('title', 'Title');
+            $form->image('image', 'Image');
+            $form->text('summary', 'Summary');
+            $form->text('content', 'Content');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
