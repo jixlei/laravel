@@ -20,6 +20,10 @@ class UEditor extends Field
 
         $this->script = <<<EOT
     var ue = UE.getEditor('{$this->id}');
+    ue.addListener("contentChange",function(){
+        var html = ue.getContent();
+        $('input[name=$name]').val(html);
+    });
 EOT;
         return parent::render();
     }
