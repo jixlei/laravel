@@ -99,7 +99,7 @@ class ProductController extends Controller
             $form->text('title', 'Title');
             $form->image('image', 'Image');
             $form->text('summary', 'Summary');
-            $form->text('content', 'Content');
+            $form->editor('content', 'Content');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
