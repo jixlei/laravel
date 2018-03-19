@@ -23,7 +23,6 @@ class ProductController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-
             $content->header('header');
             $content->description('description');
 
@@ -40,7 +39,6 @@ class ProductController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-
             $content->header('header');
             $content->description('description');
 
@@ -56,7 +54,6 @@ class ProductController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-
             $content->header('header');
             $content->description('description');
 
@@ -72,11 +69,13 @@ class ProductController extends Controller
     protected function grid()
     {
         return Admin::grid(Product::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
             
             $grid->column('title');
-            $grid->image();
+            $grid->image()->display(function ($image) {
+                $path = config('app.url') . '/uploads/'. $image;
+                return "<img src='$path' width='50' height='30'>";
+            });
             $grid->summary();
             $grid->content();
 
@@ -93,7 +92,6 @@ class ProductController extends Controller
     protected function form()
     {
         return Admin::form(Product::class, function (Form $form) {
-
             $form->display('id', 'ID');
             
             $form->text('title', 'Title');
