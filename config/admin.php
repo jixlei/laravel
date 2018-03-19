@@ -71,8 +71,8 @@ return [
         'disk' => 'uploads',
 
         'directory' => [
-            'image' => 'images',
-            'file'  => 'files',
+            'image' => 'images/' . date('Ymd'),
+            'file'  => 'files/' . date('Ymd'),
         ],
     ],
 

@@ -19,7 +19,12 @@ class UEditor extends Field
         $name = $this->formatName($this->column);
 
         $this->script = <<<EOT
+    UE.delEditor('{$this->id}');
     var ue = UE.getEditor('{$this->id}');
+    ue.addListener("ready",function(){
+        ue.setContent('{$this->value}');
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
+    });
     ue.addListener("contentChange",function(){
         var html = ue.getContent();
         $('input[name=$name]').val(html);

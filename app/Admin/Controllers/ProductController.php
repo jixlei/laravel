@@ -73,11 +73,9 @@ class ProductController extends Controller
             
             $grid->column('title');
             $grid->image()->display(function ($image) {
-                $path = config('app.url') . '/uploads/'. $image;
-                return "<img src='$path' width='50' height='30'>";
+                return display_image($image);
             });
             $grid->summary();
-            $grid->content();
 
             $grid->created_at();
             $grid->updated_at();
@@ -95,9 +93,11 @@ class ProductController extends Controller
             $form->display('id', 'ID');
             
             $form->text('title', 'Title');
-            $form->image('image', 'Image');
-            $form->text('summary', 'Summary');
-            $form->editor('content', 'Content');
+            $form->image('image', 'Image')->name(function ($file) {
+                return getfile_name($file);
+            });
+            $form->textarea('summary', 'Summary')->rows(2);
+            $form->ueditor('content', 'Content');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
