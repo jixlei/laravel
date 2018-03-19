@@ -10,6 +10,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use App\Admin\Extensions\ExcelExpoter;
 
 class ProductController extends Controller
 {
@@ -76,6 +77,7 @@ class ProductController extends Controller
                 return display_image($image);
             });
             $grid->summary();
+            $grid->exporter(new ExcelExpoter());
 
             $grid->created_at();
             $grid->updated_at();
