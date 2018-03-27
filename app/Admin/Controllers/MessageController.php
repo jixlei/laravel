@@ -74,9 +74,14 @@ class MessageController extends Controller
         return Admin::grid(Message::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->name(trans('field.name'));
+            $grid->email(trans('field.email'));
+            $grid->mobile(trans('field.mobile'));
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at(trans('field.ctime'));
+            $grid->updated_at(trans('field.utime'));
+
+            $grid->disableExport();
         });
     }
 
@@ -91,8 +96,13 @@ class MessageController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('name', trans('field.name'));
+            $form->text('email', trans('field.email'));
+            $form->text('mobile', trans('field.mobile'));
+            $form->ueditor('content', trans('field.content'));
+
+            $form->display('created_at', trans('field.ctime'));
+            $form->display('updated_at', trans('field.utime'));
         });
     }
 }

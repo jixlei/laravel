@@ -72,14 +72,18 @@ class AboutController extends Controller
     protected function grid()
     {
         return Admin::grid(About::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
-            $grid->column('title');
-            $grid->image();
-            $grid->summary();
-            $grid->content();
-            $grid->created_at();
-            $grid->updated_at();
+            
+            $grid->column('title', trans('field.title'));
+            $grid->image(trans('field.image'))->display(function ($image) {
+                return display_image($image);
+            });
+            $grid->summary(trans('field.summary'));
+
+            $grid->created_at(trans('field.ctime'));
+            $grid->updated_at(trans('field.utime'));
+
+            $grid->disableExport();
         });
     }
 
@@ -91,16 +95,17 @@ class AboutController extends Controller
     protected function form()
     {
         return Admin::form(About::class, function (Form $form) {
-
             $form->display('id', 'ID');
+            
+            $form->text('title', trans('field.title'));
+            $form->image('image', trans('field.image'))->name(function ($file) {
+                return getfile_name($file);
+            });
+            $form->textarea('summary', trans('field.summary'))->rows(2);
+            $form->ueditor('content', trans('field.content'));
 
-            $form->text('title', 'Title');
-            $form->image('image', 'Image');
-            $form->text('summary', 'Summary');
-            $form->text('content', 'Content');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', trans('field.ctime'));
+            $form->display('updated_at', trans('field.utime'));
         });
     }
 }

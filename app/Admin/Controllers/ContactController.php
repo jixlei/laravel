@@ -72,11 +72,14 @@ class ContactController extends Controller
     protected function grid()
     {
         return Admin::grid(Contact::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
+            
+            $grid->column('title', trans('field.title'));
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at(trans('field.ctime'));
+            $grid->updated_at(trans('field.utime'));
+            
+            $grid->disableExport();
         });
     }
 
@@ -91,8 +94,12 @@ class ContactController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('title', trans('field.title'));
+            $form->ueditor('content', trans('field.content'));
+
+            $form->display('created_at', trans('field.ctime'));
+            $form->display('updated_at', trans('field.utime'));
+            
         });
     }
 }

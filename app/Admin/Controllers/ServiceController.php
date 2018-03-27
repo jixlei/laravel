@@ -75,8 +75,16 @@ class ServiceController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->column('title', trans('field.title'));
+            $grid->image(trans('field.image'))->display(function ($image) {
+                return display_image($image);
+            });
+            $grid->summary(trans('field.summary'));
+
+            $grid->created_at(trans('field.ctime'));
+            $grid->updated_at(trans('field.utime'));
+
+            $grid->disableExport();
         });
     }
 
@@ -91,8 +99,15 @@ class ServiceController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('title', trans('field.title'));
+            $form->image('image', trans('field.image'))->name(function ($file) {
+                return getfile_name($file);
+            });
+            $form->textarea('summary', trans('field.summary'))->rows(2);
+            $form->ueditor('content', trans('field.content'));
+
+            $form->display('created_at', trans('field.ctime'));
+            $form->display('updated_at', trans('field.utime'));
         });
     }
 }

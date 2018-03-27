@@ -10,7 +10,6 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
-use App\Admin\Extensions\ExcelExpoter;
 
 class ProductController extends Controller
 {
@@ -72,15 +71,22 @@ class ProductController extends Controller
         return Admin::grid(Product::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
             
-            $grid->column('title');
-            $grid->image()->display(function ($image) {
+            $grid->column('title', trans('field.title'));
+            $grid->image(trans('field.image'))->display(function ($image) {
                 return display_image($image);
             });
-            $grid->summary();
-            $grid->exporter(new ExcelExpoter());
+            $grid->summary(trans('field.summary'));
+            
+            $states = [
+                'on'  => ['value' => 1, 'text' => trans('field.yes'), 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
+            ];
+            $grid->isfocus(trans('field.isfocus'))->switch($states);
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at(trans('field.ctime'));
+            $grid->updated_at(trans('field.utime'));
+
+            $grid->disableExport();
         });
     }
 
@@ -94,15 +100,22 @@ class ProductController extends Controller
         return Admin::form(Product::class, function (Form $form) {
             $form->display('id', 'ID');
             
-            $form->text('title', 'Title');
-            $form->image('image', 'Image')->name(function ($file) {
+            $form->text('title', trans('field.title'));
+            $form->image('image', trans('field.image'))->name(function ($file) {
                 return getfile_name($file);
             });
-            $form->textarea('summary', 'Summary')->rows(2);
-            $form->ueditor('content', 'Content');
+            $form->textarea('summary', trans('field.summary'))->rows(2);
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $states = [
+                'on'  => ['value' => 1, 'text' => trans('field.yes'), 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
+            ];
+            $form->switch('isfocus', trans('field.isfocus'))->states($states);
+
+            $form->ueditor('content', trans('field.content'));
+
+            $form->display('created_at', trans('field.ctime'));
+            $form->display('updated_at', trans('field.utime'));
         });
     }
 }
