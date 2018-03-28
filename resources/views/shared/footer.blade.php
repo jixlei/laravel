@@ -24,24 +24,15 @@
 			</div>
 			<div class="col-md-4 footer-grid">
 				<h3>关注我们</h3>
-				<ul class="share">
-					<li>
-						<img class="weibo_icon" src="{{ asset('images/share1.png') }}" alt="">
-					</li>
-					<li>
-						<img class="qq_icon" src="{{ asset('images/share2.png') }}" alt="">
-					</li>
-					<li>
-						<img class="wechat_icon" src="{{ asset('images/share4.png') }}" alt="">
-					</li>
-				</ul>
-				<div class="code_wrap">
-					<ul class="code">
-						<li><img class="weibo" src="{{ asset('images/weibo1.png') }}" alt=""></li>
-						<li><img class="qq" src="{{ asset('images/qq1.png') }}" alt=""></li>
-						<li><img class="wechat" src="{{ asset('images/wechat1.png') }}" alt=""></li>
-					</ul>
-				</div>
+            <ul class="share">
+                <li><img class="shareicon" src="images/share1.png" alt="" data-img="images/weibo1.png"></li>
+                <li><img class="shareicon" src="images/share2.png" alt="" data-img="images/qq1.png"></li>
+                <li><img class="shareicon" src="images/share3.png" alt="" data-img="images/twitter1.png"></li>
+                <li><img class="shareicon" src="images/share4.png" alt="" data-img="images/wechat1.png"></li>
+            </ul>
+            <div class="share_image">
+							<img class="shareimg" src="images/weibo1.png" alt="">
+            </div>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -51,38 +42,10 @@
 	</div>
 
 <script>
-/*底部二维码*/
-$(".weibo_icon").hover(function(){
-	$(".weibo").fadeIn(500);
-	$(".qq,.twitter,.wechat").fadeOut(0);
-	$(".code_wrap").css("z-index",200);
-},function(){
-	$(".weibo").fadeOut(0);
-	$(".code_wrap").css("z-index",50);
-});
-
-$(".qq_icon").hover(function(){
-	$(".qq").fadeIn(500);
-	$(".weibo,.twitter,.wechat").fadeOut(0);
-	$(".code_wrap").css("z-index",200);
-},function(){
-	$(".qq").fadeOut(0);
-	$(".code_wrap").css("z-index",50);
-});
-$(".wechat_icon").hover(function(){
-	$(".wechat").fadeIn(500);
-	$(".weibo,.qq,.twitter").fadeOut(0);
-	$(".code_wrap").css("z-index",200);
-},function(){
-	$(".wechat").fadeOut(0);
-	$(".code_wrap").css("z-index",50);
-});
-$(".weibo,.twitter,.wechat").hover(function(){
-	$(this).fadeIn(0);
-	$(".code_wrap").css("z-index",200);
-},function(){
-	$(this).fadeOut(500);
-	$(".code_wrap").css("z-index",50);
-});
-
+	/*底部二维码*/
+	$(".shareicon").hover(function() {
+			$(".shareimg").attr('src', $(this).data('img'));
+			$(".shareimg").fadeIn(500);
+	}, function() {
+	});
 </script>
