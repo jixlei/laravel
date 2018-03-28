@@ -26,7 +26,7 @@
         <ul class="rslides" id="slider1">
             @foreach ($focusImage as $img)
             <li>
-                <img src="{{ getimage_path($img->image) }}" alt="{{ $img->title }}">
+                <img src="{{ getimage_path($img->focusimg) }}" alt="{{ $img->title }}">
             </li>
             @endforeach
         </ul>
@@ -36,95 +36,65 @@
     <div class="content">
         <div class="container">
             <div class="grids">
-                <h4>What We Do</h4>
+                <h4>我们做什么</h4>
                 <h5> </h5>
                 <div class="clearfix"> </div>
                 <div class="section group">
+                    @foreach ($wedo as $do)
                     <div class="col-md-3 we-do">
                         <div class="active-grid">
-                            <h3>
-                                <img src="images/g1.png" title="support" alt="">Nemo enim</h3>
-                            <p>Lorem ipsum dolor quis nostrudx ea comvoluptate velit esse cillum nulla pariatur.</p>
+                            <h3><img src="{{ getimage_path($do->icon) }}" title="{{ $do->title }}" alt="{{ $do->title }}">{{ $do->title }}</h3>
+                            <p>{{ $do->summary }}</p>
                         </div>
                     </div>
-                    <div class="col-md-3 we-do">
-                        <div class="active-grid">
-                            <h3>
-                                <img src="images/g2.png" title="Destinations" alt="">Temporibus</h3>
-                            <p>comvoluptate velit esse cillum nulla Lorem ipsum dolor quis nostrudx ea pariatur.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 we-do">
-                        <div class="active-grid">
-                            <h3>
-                                <img src="images/g3.png" title="Events" alt="">Quis autem</h3>
-                            <p>Lorem ipsum dolor quis nostrudx ea comvoluptate velit esse cillum nulla pariatur.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 we-do">
-                        <div class="active-grid">
-                            <h3>
-                                <img src="images/g4.png" title="Plans" alt="">Neque porr</h3>
-                            <p>Lorem ipsum dolor quis nostrudx ea comvoluptate velit esse cillum nulla pariatur.</p>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="clearfix"> </div>
                 </div>
             </div>
-            <div class="big-button">
+            <!-- <div class="big-button">
                 <div class="big-b-text">
-                    <p>Lorem Ipsum is simply text of typesetting industry</p>
-                    <span>comvoluptate velit esse cillum dolore eu fugiat....</span>
+                    <p>行业竞争很激烈很激烈，你说我要怎么办，回家种红薯吧。</p>
+                    <span>种红薯啊，种红薯，种了一亩好红薯，吃一冬天应该没有问题吧，啊，我要吃一冬天的红薯啊，我喜欢，嘿嘿...</span>
                 </div>
                 <div class="big-b-btn">
-                    <a href="#">Read More</a>
+                    <a href="#">更多</a>
                 </div>
+                <div class="clearfix"> </div>
+            </div> -->
+            <div class="recent-places">
+                <h4>我们的工作</h4>
+                <h5> </h5>
+                <div class="clearfix"> </div>
+                @foreach ($work as $wk)
+                <div class="col-md-3 holder smooth">
+                    <img src="{{ getimage_path($wk->image) }}" alt="{{ $wk->title }}">
+                    <div class="go-top">
+                        <h3>{{ $wk->title }}</h3>
+                        <p>{{ $wk->summary }}</p>
+                        <a href="#">更多</a>
+                    </div>
+                </div>
+                @endforeach
                 <div class="clearfix"> </div>
             </div>
             <div class="recent-places">
-                <h4>Our Work</h4>
+                <h4>热门的产品</h4>
                 <h5> </h5>
                 <div class="clearfix"> </div>
-                <div class="col-md-3 holder smooth">
-                    <img src="images/p1.jpg" alt="Web Tutorial Plus - Demo">
-                    <div class="go-top">
-                        <h3>Image Description</h3>
-                        <p>
-                            This is the description of this image. You may use.
-                        </p>
-                        <a href="#">ReadMore</a>
+                @foreach ($hotproduct as $hots)
+                <div class="row" style="margin-bottom: 10px;">
+                    @foreach ($hots as $hot)
+                    <div class="col-md-3 holder smooth">
+                        <img src="{{ getimage_path($hot->image) }}" alt="{{ $hot->title }}">
+                        <div class="go-top">
+                            <h3>{{ $hot->title }}</h3>
+                            <p>{{ $hot->summary }}</p>
+                            <a href="#">更多</a>
+                        </div>
                     </div>
+                    @endforeach    
                 </div>
-                <div class="col-md-3 holder smooth">
-                    <img src="images/p2.jpg" alt="Web Tutorial Plus - Demo">
-                    <div class="go-top">
-                        <h3>Image Description</h3>
-                        <p>
-                            This is the description of this image. You may use.
-                        </p>
-                        <a href="#">ReadMore</a>
-                    </div>
-                </div>
-                <div class="col-md-3 holder smooth">
-                    <img src="images/p3.jpg" alt="Web Tutorial Plus - Demo">
-                    <div class="go-top">
-                        <h3>Image Description</h3>
-                        <p>
-                            This is the description of this image. You may use.
-                        </p>
-                        <a href="#">ReadMore</a>
-                    </div>
-                </div>
-                <div class="col-md-3 holder smooth last-grid">
-                    <img src="images/p4.jpg" alt="Web Tutorial Plus - Demo">
-                    <div class="go-top">
-                        <h3>Image Description</h3>
-                        <p>
-                            This is the description of this image. You may use.
-                        </p>
-                        <a href="#">ReadMore</a>
-                    </div>
-                </div>
+                @endforeach
                 <div class="clearfix"> </div>
             </div>
         </div>

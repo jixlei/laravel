@@ -18,6 +18,7 @@ class CreateAboutsTable extends Migration
             $table->string('title', 190)->unique();
             $table->string('image', 190);
             $table->string('summary', 190);
+            $table->tinyInteger('isbottom')->default(0);
             $table->text('content')->nullable();
             $table->timestamps();
         });

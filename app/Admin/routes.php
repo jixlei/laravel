@@ -16,5 +16,6 @@ Route::group([
     $router->resource('contact', ContactController::class);
     $router->resource('message', MessageController::class);
     $router->resource('service', ServiceController::class);
+    $router->resource('work', WorkController::class);
 
 });

@@ -72,6 +72,9 @@ class ProductController extends Controller
             $grid->id('ID')->sortable();
             
             $grid->column('title', trans('field.title'));
+            $grid->focusimg(trans('field.focusimg'))->display(function ($image) {
+                return display_image($image);
+            });
             $grid->image(trans('field.image'))->display(function ($image) {
                 return display_image($image);
             });
@@ -82,6 +85,7 @@ class ProductController extends Controller
                 'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
             ];
             $grid->isfocus(trans('field.isfocus'))->switch($states);
+            $grid->ishot(trans('field.ishot'))->switch($states);
 
             $grid->created_at(trans('field.ctime'));
             $grid->updated_at(trans('field.utime'));
@@ -101,6 +105,9 @@ class ProductController extends Controller
             $form->display('id', 'ID');
             
             $form->text('title', trans('field.title'));
+            $form->image('focusimg', trans('field.focusimg'))->name(function ($file) {
+                return getfile_name($file);
+            });
             $form->image('image', trans('field.image'))->name(function ($file) {
                 return getfile_name($file);
             });
@@ -111,6 +118,7 @@ class ProductController extends Controller
                 'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
             ];
             $form->switch('isfocus', trans('field.isfocus'))->states($states);
+            $form->switch('ishot', trans('field.ishot'))->states($states);
 
             $form->ueditor('content', trans('field.content'));
 
