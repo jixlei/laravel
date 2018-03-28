@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\Work;
 
 class HomeController extends Controller
 {
@@ -22,9 +21,9 @@ class HomeController extends Controller
         $hotproduct = Product::where('ishot', 1)->orderby('id', 'desc')->take(12)->get();
         $hotproduct = object_chunk($hotproduct, 4);
         // 我们做什么
-        $wedo = Work::where('type', 0)->orderby('id', 'desc')->take(4)->get();
+        $wedo = $this->weDo();
         // 我们的工作
-        $work = Work::where('type', 1)->orderby('id', 'desc')->take(4)->get();
+        $work =$this->ourWork();
         // 底部信息
         $footer = $this->footer();
         return view('home', compact("focusImage", "hotproduct", "wedo", "work", "footer"));

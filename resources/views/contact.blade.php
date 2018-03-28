@@ -10,7 +10,7 @@
             <div class="section group">
                 <div class="col-md-4 col span_1_of_3">
                     <div class="contact_info">
-                        <h3>FIND</h3>
+                        <h3>位置</h3>
                         <h5> </h5>
                         <div class="clearfix"> </div>
                         <div class="map">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="company_address">
-                        <h3>Info</h3>
+                        <h3>联系方式</h3>
                         <h5> </h5>
                         <div class="clearfix"> </div>
                         <p>500 Lorem Ipsum Dolor Sit,</p>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-8 col span_2_of_3">
                     <div class="contact-form">
-                        <h3>CONTACT US</h3>
+                        <h3>联系我们</h3>
                         <h5> </h5>
                         <div class="clearfix"> </div>
                         <form>

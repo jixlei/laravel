@@ -3,7 +3,7 @@
 			<div class="col-md-4 footer-grid">
 				<h3>{{ $footer['about']->title }}</h3>
 				<p>{{ $footer['about']->summary }}</p>
-				<a href="#">ReadMore</a>
+				<a href="#">更多</a>
 			</div>
 			<div class="col-md-4 footer-grid center-grid">
 				<h3>{{ $footer['contact']->title }}</h3>

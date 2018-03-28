@@ -8,6 +8,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contact');
+        // 底部信息
+        $footer = $this->footer();
+        return view('contact', compact("footer"));
     }
 }

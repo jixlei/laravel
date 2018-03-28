@@ -7,7 +7,7 @@
     <div class="container">
         <!--start-services-->
         <div class="services">
-            <h4>Our Services</h4>
+            <h4>我们的服务</h4>
             <h5> </h5>
             <div class="clearfix"> </div>
             <div class="section group">
@@ -124,49 +124,19 @@
         </div>
         <!--End-services-->
         <div class="recent-places">
-            <h4>Our Work</h4>
+            <h4>我们的工作</h4>
             <h5> </h5>
             <div class="clearfix"> </div>
+            @foreach ($work as $wk)
             <div class="col-md-3 holder smooth">
-                <img src="images/p1.jpg" alt="Web Tutorial Plus - Demo">
+                <img src="{{ getimage_path($wk->image) }}" alt="{{ $wk->title }}">
                 <div class="go-top">
-                    <h3>Image Description</h3>
-                    <p>
-                        This is the description of this image. You may use.
-                    </p>
-                    <a href="#">ReadMore</a>
+                    <h3>{{ $wk->title }}</h3>
+                    <p>{{ $wk->summary }}</p>
+                    <a href="#">更多</a>
                 </div>
             </div>
-            <div class="col-md-3 holder smooth">
-                <img src="images/p2.jpg" alt="Web Tutorial Plus - Demo">
-                <div class="go-top">
-                    <h3>Image Description</h3>
-                    <p>
-                        This is the description of this image. You may use.
-                    </p>
-                    <a href="#">ReadMore</a>
-                </div>
-            </div>
-            <div class="col-md-3 holder smooth">
-                <img src="images/p3.jpg" alt="Web Tutorial Plus - Demo">
-                <div class="go-top">
-                    <h3>Image Description</h3>
-                    <p>
-                        This is the description of this image. You may use.
-                    </p>
-                    <a href="#">ReadMore</a>
-                </div>
-            </div>
-            <div class="col-md-3 holder smooth last-grid">
-                <img src="images/p4.jpg" alt="Web Tutorial Plus - Demo">
-                <div class="go-top">
-                    <h3>Image Description</h3>
-                    <p>
-                        This is the description of this image. You may use.
-                    </p>
-                    <a href="#">ReadMore</a>
-                </div>
-            </div>
+            @endforeach
             <div class="clearfix"> </div>
         </div>
     </div>

@@ -915,7 +915,7 @@ body a:hover {
 
 .gallerys h5 {
 	float: right;
-	width: 80%;
+	width: 90%;
 	background: url(../images/hd-bg.png) 0% 73% repeat-x;
 	display: inline-block;
 	height: 15px;
@@ -962,7 +962,7 @@ body a:hover {
 
 .projects-bottom-paination {
 	text-align: center;
-	padding-top: 55px;
+	padding-top: 15px;
 }
 
 .projects-bottom-paination li a {
