@@ -4,7 +4,7 @@
 		
 		<!--start-logo-->
 		<div class="logo">
-			<a href="/">Steel Industry</a>
+			<a href="/">河南洛阳拖拉机制造厂</a>
 		</div>
 		<!--End-logo-->
 
@@ -34,7 +34,7 @@
 				</li>
 			</ul> -->
 		</div>
-		<div class="clearfix"> </div>
+		<!-- <div class="clearfix"> </div> -->
 		<!--End-share-->
 	</div>
 </div>
@@ -53,19 +53,19 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="home">
-					<a href="/">Home</a>
+					<a href="/">首页</a>
 				</li>
 				<li class="">
-					<a href="{{ route('about') }}">About</a>
+					<a href="{{ route('product') }}">产品</a>
 				</li>
 				<li class="">
-					<a href="{{ route('services') }}">Services</a>
+					<a href="{{ route('services') }}">服务</a>
 				</li>
 				<li class="">
-					<a href="{{ route('product') }}">Product</a>
+					<a href="{{ route('contact') }}">联系我们</a>
 				</li>
 				<li class="">
-					<a href="{{ route('contact') }}">Contact</a>
+					<a href="{{ route('about') }}">关于我们</a>
 				</li>
 			</ul>
 		</div>

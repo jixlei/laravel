@@ -12,7 +12,8 @@
     $(function () {
         $("#slider1").responsiveSlides({
             maxwidth: 2600,
-            speed: 600
+            speed: 600,
+            nav: true
         });
     });
 </script>
@@ -23,15 +24,11 @@
     <div class="image-slider">
         <!-- Slideshow 1 -->
         <ul class="rslides" id="slider1">
+            @foreach ($focusImage as $img)
             <li>
-                <img src="{{ asset('images/slider1.jpg') }}" alt="">
+                <img src="{{ getimage_path($img->image) }}" alt="{{ $img->title }}">
             </li>
-            <li>
-                <img src="{{ asset('images/slider2.jpg') }}" alt="">
-            </li>
-            <li>
-                <img src="{{ asset('images/slider1.jpg') }}" alt="">
-            </li>
+            @endforeach
         </ul>
         <!-- Slideshow 2 -->
     </div>

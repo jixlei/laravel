@@ -15,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $focus = Product::where('isfocus', 1)->orderby('id', 'desc')->get();
-        return view('home', compact("focus"));
+        // 轮播图
+        $focusImage = Product::where('isfocus', 1)->orderby('id', 'desc')->get();
+        return view('home', compact("focusImage"));
     }
 }

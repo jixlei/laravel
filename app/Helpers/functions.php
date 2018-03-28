@@ -13,3 +13,9 @@ function display_image($image)
   $path = config('app.url') . '/uploads/'. $image;
   return "<img src='$path' width='50' height='30'>";
 }
+
+function getimage_path($image)
+{
+  $path = config('app.url') . '/uploads/'. $image;
+  return $path;
+}
