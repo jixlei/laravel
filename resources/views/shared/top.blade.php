@@ -8,9 +8,10 @@
 		</div>
 		<!--End-logo-->
 
-		<!--start-top-nav-->
+		<!--start-share-->
 		<div class="top-search-social-nav">
-			<ul>
+			@include('shared.bshare')
+			<!-- <ul>
 				<li class="active">
 					<a href="#">
 						<img src="{{ asset('images/facebook.png') }}" title="Facebook" alt="">
@@ -31,10 +32,10 @@
 						<img src="{{ asset('images/rss.png') }}" title="Rss" alt="">
 					</a>
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 		<div class="clearfix"> </div>
-		<!--End-top-nav-->
+		<!--End-share-->
 	</div>
 </div>
 <!--End-header-->
