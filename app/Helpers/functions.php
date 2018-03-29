@@ -2,7 +2,7 @@
 
 function getfile_name($file)
 {
-    $randNum = rand(1, 10000000000) . rand(1, 10000000000);
+    $randNum = rand(1, PHP_INT_SIZE) . rand(1, PHP_INT_SIZE);
     $num = substr($randNum, 0, 6);
     $filename = time() . $num . '.' . $file->guessExtension();
     return $filename;
