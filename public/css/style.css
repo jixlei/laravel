@@ -1113,6 +1113,12 @@ body a:hover {
 	background: #42a5f5;
 }
 
+.company_address h5 {
+	width: 60%;
+}
+.company_address h3 {
+	margin-bottom: 1em;
+}
 .company_address p {
 	font-size: 0.875em;
 	color: #6a6a6a;
@@ -1130,6 +1136,15 @@ body a:hover {
 .map {
 	margin-bottom: 15px;
 }
+.map p iframe{
+	width: 100%;
+	height: 200px;
+}
+.map iframe{
+	width: 100%;
+	height: 175px;
+}
+
 
 /*----responsive-design-----*/
 

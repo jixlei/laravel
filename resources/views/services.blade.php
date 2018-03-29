@@ -10,117 +10,27 @@
             <h4>我们的服务</h4>
             <h5> </h5>
             <div class="clearfix"> </div>
-            <div class="section group">
+             @foreach ($services as $sarr)
+             <div class="section group">
+                @foreach ($sarr as $service)
                 <div class="col-md-6 listview_1_of_2">
                     <div class="images_1_of_2">
                         <div class="listimg listimg_2_of_1">
-                            <img src="images/s1.jpg" alt="">
+                            <img src="{{ getimage_path($service->image) }}" alt="{{ $service->title }}">
                         </div>
                         <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                            <h3>{{ $service->title }}</h3>
+                            <p>{{ $service->summary }}</p>
                             <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
+                                <span><a href="#">更多</a></span>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                 </div>
-                <div class="col-md-6 listview_1_of_2">
-                    <div class="images_1_of_2">
-                        <div class="listimg listimg_2_of_1">
-                            <img src="images/s2.jpg" alt="">
-                        </div>
-                        <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                            <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
+                @endforeach    
             </div>
-            <div class="section group">
-                <div class="col-md-6 listview_1_of_2">
-                    <div class="images_1_of_2">
-                        <div class="listimg listimg_2_of_1">
-                            <img src="images/s3.jpg" alt="">
-                        </div>
-                        <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                            <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="col-md-6 listview_1_of_2">
-                    <div class="images_1_of_2">
-                        <div class="listimg listimg_2_of_1">
-                            <img src="images/s4.jpg" alt="">
-                        </div>
-                        <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                            <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="section group">
-                <div class="col-md-6 listview_1_of_2">
-                    <div class="images_1_of_2">
-                        <div class="listimg listimg_2_of_1">
-                            <img src="images/s1.jpg" alt="">
-                        </div>
-                        <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                            <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="col-md-6 listview_1_of_2">
-                    <div class="images_1_of_2">
-                        <div class="listimg listimg_2_of_1">
-                            <img src="images/s2.jpg" alt="">
-                        </div>
-                        <div class="text list_2_of_1">
-                            <h3>Lorem Ipsum is simply</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                            <div class="button">
-                                <span>
-                                    <a href="#">Read More</a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
+            @endforeach
         </div>
         <!--End-services-->
         <div class="recent-places">
