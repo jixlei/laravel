@@ -9,83 +9,39 @@
         <div class="about">
             <div class="about-grids">
                 <div class="col-md-4 about-grid">
-                    <h3>我们的历史</h3>
+                    <h3>{{ $history->title }}</h3>
                     <h5> </h5>
                     <div class="clearfix"> </div>
-                    <a href="#"><img src="images/slider1.jpg" class="img-responsive" alt=""></a>
-                    <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam.</span>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                        feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-                        mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
-                        condimentum.</p>
+                    <a href="#"><img src="{{ getimage_path($history->image) }}" class="img-responsive" alt="{{ $history->title }}"></a>
+                    <span>{{ $history->summary }}</span>
+                    <p>{!! $history->content !!}</p>
                     <a class="button1" href="#">更多</a>
                 </div>
                 <div class="col-md-4 about-grid center-grid1">
-                    <h3>为什么选择我们</h3>
+                    <h3>{{ $choose->title }}</h3>
                     <h5> </h5>
                     <div class="clearfix"> </div>
-                    <p>Pellenn dimentum sed, commodo vitae, ornare sit amet,lit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis
-                        tempus lacus enim ac dui.</p>
-                    <label>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</label>
-                    <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
-                    <label>exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</label>
-                    <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+                    <p>{{ $choose->summary }}</p>
+                    <p>{!! $choose->content !!}</p>
                 </div>
                 <div class="col-md-4 about-grid last-grid">
                     <h3>我们的团队</h3>
                     <h5> </h5>
                     <div class="clearfix"> </div>
                     <div class="about-team">
+                        @foreach ($team as $tm)
                         <div class="client">
                             <div class="about-team-left">
                                 <a href="#">
-                                    <img src="images/c1.jpg" class="img-responsive" alt="">
+                                    <img src="{{ getimage_path($tm->image) }}" class="img-responsive" alt="{{ $tm->title }}">
                                 </a>
                             </div>
                             <div class="about-team-right">
-                                <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                                    eget, tempor sit amet, ante.</p>
+                                <p>{{ $tm->summary }}</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
-                        <div class="client">
-                            <div class="about-team-left">
-                                <a href="#">
-                                    <img src="images/c2.jpg" class="img-responsive" alt="">
-                                </a>
-                            </div>
-                            <div class="about-team-right">
-                                <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                                    eget, tempor sit amet, ante.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="client">
-                            <div class="about-team-left">
-                                <a href="#">
-                                    <img src="images/c1.jpg" class="img-responsive" alt="">
-                                </a>
-                            </div>
-                            <div class="about-team-right">
-                                <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                                    eget, tempor sit amet, ante.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="client">
-                            <div class="about-team-left">
-                                <a href="#">
-                                    <img src="images/c2.jpg" class="img-responsive" alt="">
-                                </a>
-                            </div>
-                            <div class="about-team-right">
-                                <p>tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                                    eget, tempor sit amet, ante.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="clearfix"> </div>

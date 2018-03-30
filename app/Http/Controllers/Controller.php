@@ -18,7 +18,7 @@ class Controller extends BaseController
     // 底部
     protected function footer()
     {
-        $about = About::where('isbottom', 1)->orderby('id', 'desc')->first();
+        $about = About::where('type', 0)->orderby('id', 'desc')->first();
         $contact = Contact::where('isbottom', 1)->orderby('id', 'desc')->first();
         return array('about'=>$about, 'contact'=>$contact);
     }

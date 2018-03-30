@@ -78,15 +78,12 @@ class AboutController extends Controller
             $grid->image(trans('field.image'))->display(function ($image) {
                 return display_image($image);
             });
+            $grid->type(trans('field.type'))->select(config('common.abouttype'));
             $grid->summary(trans('field.summary'));
-            $states = [
-                'on'  => ['value' => 1, 'text' => trans('field.yes'), 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
-            ];
-            $grid->isbottom(trans('field.isbottom'))->switch($states);
 
             $grid->created_at(trans('field.ctime'));
             $grid->updated_at(trans('field.utime'));
+
 
             $grid->disableExport();
         });
@@ -108,12 +105,7 @@ class AboutController extends Controller
             });
             $form->textarea('summary', trans('field.summary'))->rows(2);
             $form->ueditor('content', trans('field.content'));
-
-            $states = [
-                'on'  => ['value' => 1, 'text' => trans('field.yes'), 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => trans('field.no'), 'color' => 'danger'],
-            ];
-            $form->switch('isbottom', trans('field.isbottom'))->states($states);
+            $form->select('type', trans('field.type'))->options(config('common.abouttype'));
 
             $form->display('created_at', trans('field.ctime'));
             $form->display('updated_at', trans('field.utime'));

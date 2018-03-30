@@ -36,7 +36,8 @@
                         <h3>联系我们</h3>
                         <h5> </h5>
                         <div class="clearfix"> </div>
-                        <form>
+                        
+                        <form id="contactForm">
                             <div>
                                 <span><label>姓名：</label></span>
                                 <span>
@@ -81,6 +82,57 @@
 @push('scripts')
 <script>
     $(function () {
+
+    $('#contactForm').bootstrapValidator({
+            //live: 'disabled',
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: '名称不能为空'
+                        },
+                        stringLength: {
+                            min: 1,
+                            max: 10,
+                            message: '长度在1到10之间'
+                        }
+                    }
+                },
+                pone: {
+                    validators: {
+                        notEmpty: {
+                            message: '手机号不能为空'
+                        },
+                        stringLength: {
+                            min: 11,
+                            max: 11,
+                            message: '长度在1到10之间'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        emailAddress: {
+                            message: '邮箱格式不正确'
+                        }
+                    }
+                },
+                content: {
+                    validators: {
+                        notEmpty: {
+                            message: '内容不能为空'
+                        }
+                    }
+                }
+            }
+        });
+
         $("form").submit(function(e){
             e.preventDefault();
             var email = $('[name=email]').val();

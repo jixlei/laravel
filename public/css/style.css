@@ -1664,3 +1664,33 @@ body a:hover {
 		width: 29% !important;
 	}
 }
+
+
+/* bshare */
+
+.bshare a {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	padding: 0;
+	margin: 6px;
+}
+
+.bshare a.bds_weixin {
+	background: url(../images/wechat.png) no-repeat;
+}
+.bshare a.bds_qzone {
+	background: url(../images/qzone.png) no-repeat;
+}
+.bshare a.bds_tsina {
+	background: url(../images/weibo.png) no-repeat;
+}
+.bshare a.bds_tqq {
+	background: url(../images/qqweibo.png) no-repeat;
+}
+.bshare a.bds_renren {
+	background: url(../images/renren.png) no-repeat;
+}
+.bshare a.bds_sqq {
+	background: url(../images/qq.png) no-repeat;
+}
