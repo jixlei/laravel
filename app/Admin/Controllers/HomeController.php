@@ -15,8 +15,8 @@ class HomeController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Dashboard');
-            $content->description('Description...');
+            $content->header(trans('field.dash'));
+            $content->description(trans('field.system'));
 
             $content->row(Dashboard::title());
 

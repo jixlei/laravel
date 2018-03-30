@@ -24,5 +24,16 @@ return [
     'work' => '我们的工作',
     'wedo' => '我们做什么',
     'isbottom' => '推荐底部',
+    'list' => '列表',
+    'add' => '新增',
+    'edit' => '编辑',
+    'product' => '产品',
+    'about' => '关于我们',
+    'contact' => '联系我们',
+    'dash' => '仪表盘',
+    'system' => '系统',
+    'msg' => '消息',
+    'service' => '服务',
+    'work' => '工作',
 ];
 

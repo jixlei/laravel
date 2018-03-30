@@ -23,8 +23,8 @@ class ProductController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.product'));
+            $content->description(trans('field.list'));
 
             $content->body($this->grid());
         });
@@ -39,8 +39,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.product'));
+            $content->description(trans('field.edit'));
 
             $content->body($this->form()->edit($id));
         });
@@ -54,8 +54,8 @@ class ProductController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.product'));
+            $content->description(trans('field.add'));
 
             $content->body($this->form());
         });

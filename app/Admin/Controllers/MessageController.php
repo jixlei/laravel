@@ -24,8 +24,8 @@ class MessageController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.msg'));
+            $content->description(trans('field.list'));
 
             $content->body($this->grid());
         });
@@ -41,8 +41,8 @@ class MessageController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.msg'));
+            $content->description(trans('field.edit'));
 
             $content->body($this->form()->edit($id));
         });
@@ -57,8 +57,8 @@ class MessageController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header(trans('field.msg'));
+            $content->description(trans('field.add'));
 
             $content->body($this->form());
         });
